@@ -17,7 +17,7 @@
                 <td colspan="3" height="25">statistics</td>
             </tr>
             <tr>
-                <td class="st">player</td>
+                <td id="stp" class="st"></td>
                 <td class="st">computer</td>
                 <td class="st">tie</td>
             </tr>
@@ -30,6 +30,7 @@
     </div>
     <script>
         let name = prompt("please enter your name", "player");
+        document.getElementById("stp").innerHTML = name;
         let table = "";
         let arr = [""];
         let num = 1;
