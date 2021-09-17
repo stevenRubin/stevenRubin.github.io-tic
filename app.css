@@ -1,5 +1,6 @@
 ﻿body {
     font-family: 'Segoe UI', sans-serif;
+    background-color:aquamarine;
 }
 
 span {
@@ -21,4 +22,7 @@ b {
 }
 #end {
     padding: 30px;
+}
+.st{
+    width:80px;
 }

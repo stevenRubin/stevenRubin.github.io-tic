@@ -4,6 +4,9 @@ function checkStatus(arr) {
         arr[3] == "X" && arr[5] == "X" && arr[7] == "X" || arr[1] == "X" && arr[4] == "X" && arr[7] == "X" ||
         arr[2] == "X" && arr[5] == "X" && arr[8] == "X" || arr[3] == "X" && arr[6] == "X" && arr[9] == "X") {
         document.getElementById("d2").innerHTML = "<b>" + name + " won</b>";
+        var v = parseInt(document.getElementById("pw").innerHTML);
+        v++;
+        document.getElementById("pw").innerHTML = "" + v;
         return true;
     }
     else if (arr[1] == "O" && arr[2] == "O" && arr[3] == "O" || arr[4] == "O" && arr[5] == "O" && arr[6] == "O" ||
@@ -11,6 +14,9 @@ function checkStatus(arr) {
         arr[3] == "O" && arr[5] == "O" && arr[7] == "O" || arr[1] == "O" && arr[4] == "O" && arr[7] == "O" ||
         arr[2] == "O" && arr[5] == "O" && arr[8] == "O" || arr[3] == "O" && arr[6] == "O" && arr[9] == "O") {
         document.getElementById("d2").innerHTML = "<b>the Computer won</b>";
+        var v = parseInt(document.getElementById("cw").innerHTML);
+        v++;
+        document.getElementById("cw").innerHTML = "" + v;
         return true;
     }
     else {
@@ -20,6 +26,9 @@ function checkStatus(arr) {
             }
         }
         document.getElementById("d2").innerHTML = "<b>its a tie</b>";
+        var v = parseInt(document.getElementById("nw").innerHTML);
+        v++;
+        document.getElementById("nw").innerHTML = "" + v;
         return true;
     }
 }

@@ -11,8 +11,25 @@
 <body onload="game()">
     <div id="d1" style="position:absolute;top:100px;left:39%"></div><br />
     <div style="background-color:aqua"></div>
+    <div>
+        <table border="1" height="50" style="text-align:center;background-color:darkgoldenrod">
+            <tr>
+                <td colspan="3" height="25">statistics</td>
+            </tr>
+            <tr>
+                <td class="st">player</td>
+                <td class="st">computer</td>
+                <td class="st">tie</td>
+            </tr>
+            <tr style="height:30px">
+                <td id="pw" class="st">0</td>
+                <td id="cw" class="st">0</td>
+                <td id="nw" class="st">0</td>
+            </tr>
+        </table>
+    </div>
     <script>
-        let name = prompt("enter your name");
+        let name = prompt("please enter your name", "player");
         let table = "";
         let arr = [""];
         let num = 1;
@@ -48,8 +65,8 @@
             if (test == false) {
                 let v = computerSelection(arr);
                 document.getElementById(`t${v}`).src = "3.png";
+                test = checkStatus(arr);
             }
-            test = checkStatus(arr);
         }
         function again() {
             table = "";
