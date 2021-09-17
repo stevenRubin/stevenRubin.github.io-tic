@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TIC TAK</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="computer.js"></script>
+    <script src="check.js"></script>
+</head>
+<body onload="game()">
+    <div id="d1" style="position:absolute;top:100px;left:39%"></div><br />
+    <div style="background-color:aqua"></div>
+    <script>
+        let name = prompt("enter your name");
+        let table = "";
+        let arr = [""];
+        let num = 1;
+        let test = false;
+        function game() {
+            table += "<table border=`1`>";
+            table += `<tr><td colspan="3" height="50" style="background-color:aqua;text-align:center"><h1>TIC TAK</h1></div></td><tr/>`;
+            for (let i = 0; i < 3; i++) {
+                table += "<tr>";
+                for (let j = 0; j < 3; j++) {
+                    table += "<td>" + ` <img id="t${num}" src="1.png" alt="Alternate Text" onclick="bord(${num})"/></td>`;
+                    num++;
+                }
+                table += "</tr>";
+            }
+            table += `<tr id="end"><td colspan="3" height="25"><div id="d2" style="background-color:aqua;text-align:center"></div></td><tr/>`;
+            table += `<tr><td colspan="3" height="50"><input onclick="again()" type="button" value="new game" style="background-color:red;width:100%;height:100%" /></td><tr/>`;
+            table += "</table>";
+            document.getElementById("d1").innerHTML = table;
+        }
+        function bord(c) {
+            if (arr[c] != "X" && arr[c] != "O" && test != true) {
+                document.getElementById(`t${c}`).src = "2.jfif";
+                arr[c] = "X";
+            }
+            else if (test == true) {
+                alert("the game ended, prees new game to start over!");
+            }
+            else {
+                alert("this button is already taken");
+            }
+            test = checkStatus(arr);
+            if (test == false) {
+                let v = computerSelection(arr);
+                document.getElementById(`t${v}`).src = "3.png";
+            }
+            test = checkStatus(arr);
+        }
+        function again() {
+            table = "";
+            arr = [""];
+            num = 1;
+            test = false;
+            document.getElementById("d1").innerHTML = "";
+            game();
+        }
+    </script>
+</body>
+</html>
