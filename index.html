@@ -34,7 +34,7 @@
         let table = "";
         let arr = [""];
         let num = 1;
-        let test = false;
+        let test, test2 = false;
         function game() {
             table += "<table border=`1`>";
             table += `<tr><td colspan="3" height="50" style="background-color:aqua;text-align:center"><h1>TIC TAK</h1></div></td><tr/>`;
@@ -55,18 +55,23 @@
             if (arr[c] != "X" && arr[c] != "O" && test != true) {
                 document.getElementById(`t${c}`).src = "2.jfif";
                 arr[c] = "X";
+                test2 = false;
             }
             else if (test == true) {
                 alert("the game ended, prees new game to start over!");
             }
             else {
                 alert("this button is already taken");
+                test2 = true;
             }
             test = checkStatus(arr);
             if (test == false) {
-                let v = computerSelection(arr);
-                document.getElementById(`t${v}`).src = "3.png";
-                test = checkStatus(arr);
+                if (test2 != true) {
+                    let v = computerSelection(arr);
+                    document.getElementById(`t${v}`).src = "3.png";
+                    test = checkStatus(arr);
+                }
+
             }
         }
         function again() {
